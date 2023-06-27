@@ -1,0 +1,41 @@
+<body>
+    <div class="content-center">
+        <div class="form">
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form)" >
+                <label class="title"> Faça seu login </label>
+                
+                <span> A um clique de mostrar suas ideias ao mundo 
+                </span>
+
+                <label>
+                    <input type="email" placeholder="Email..." formControlName="email">
+                    <div class="error" *ngIf="invalidInput(form.get('email'))"> 
+                        O Email é obrigatorio...
+                    </div>
+                </label>
+
+                <label>
+                    <input type="password" placeholder="Senha..." formControlName="password">
+                    <div class="error" *ngIf="invalidInput(form.get('password'))"> 
+                        A senha é obrigatoria... (@,A,a,1) para senha ser mais segura
+                    </div>
+                </label>
+
+                <div class="forgot-password">
+                    <a href="/forgout-passwd">Esqueceu sua senha?</a>
+                </div>
+
+                <label class="content-button">  
+                    <button type="submit">Login</button>
+                </label>
+
+                <div class="have-account">
+                    Não possui conta?
+                    <a href="/register" >crie agora</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>

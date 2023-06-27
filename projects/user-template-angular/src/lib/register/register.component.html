@@ -1,0 +1,47 @@
+<body>
+    <div class="content-center">
+    <div class="form">
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form)" >
+            <label class="title"> Crie sua conta</label>
+            
+            <span class="subtitle">  Junte-se a nós e compatilhe seu conhecimento!<br>
+                    A um clique de mostrar suas ideias ao mundo </span>
+            <label>
+                <input type="text" placeholder="Nome..." formControlName="name">
+                <div class="error" *ngIf="invalidInput(form.get('name'))"> 
+                    O nome é obrigatorio...
+                </div>
+            </label>
+            <label>
+                <input type="text" placeholder="Username..." formControlName="username">
+                <div class="error" *ngIf="invalidInput(form.get('username'))"> 
+                    O Username é obrigatorio...
+                </div>
+            </label>
+            <label>
+                <input type="email" placeholder="Email..." formControlName="email">
+                <div class="error" *ngIf="invalidInput(form.get('email'))"> 
+                    O Email é obrigatorio...
+                </div>
+            </label>
+            <label>
+                <input type="password" placeholder="Senha..." formControlName="password">
+                <div class="error" *ngIf="invalidInput(form.get('password'))"> 
+                    A senha é obrigatoria... (@,A,a,1) para senha ser mais segura
+                </div>
+            </label>
+            
+            <label class="content-button">
+                
+                <button type="submit" [disabled]="form.invalid">Cadastrar</button>
+            </label>
+
+            <div class="have-account">
+                Já possui conta?
+                <a href="/login">entre agora</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
