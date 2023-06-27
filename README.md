@@ -1,27 +1,53 @@
-# UserAngular
+# user-template-angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
+Template angular para registro e login responsivo
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Use o gerenciador de pacote [npm](https://www.npmjs.com/package/user-template-angular) para installar o user-template-angular.
 
-## Code scaffolding
+```bash
+npm install user-template-angular
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
+### Passo 1:
+app.module.ts
+```typescript
 
-## Build
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { UserTemplateAngularModule } from 'user-template-angular';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    UserTemplateAngularModule
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-## Running unit tests
+```
+### Passo 2:
+App.Component.html
+```typescript
+<lib-login (formSubmit)="onSubmit($event)"></lib-login>
+<lib-register (formSubmit)="onSubmit($event)"></lib-register>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+### Passo 3:
+App.component.ts
+```typescript
+  onSubmit(valueForm:any){
+    //aqui vc consegue o valor do formulario
+    console.log(valueForm)
 
-## Running end-to-end tests
+  }
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```

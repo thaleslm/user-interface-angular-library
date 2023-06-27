@@ -1,24 +1,53 @@
-# UserTemplateAngular
+# user-template-angular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
+Template angular para registro e login responsivo
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project user-template-angular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project user-template-angular`.
-> Note: Don't forget to add `--project user-template-angular` or else it will be added to the default project in your `angular.json` file. 
+Use o gerenciador de pacote [npm](https://www.npmjs.com/package/user-template-angular) para installar o user-template-angular.
 
-## Build
+```bash
+npm install user-template-angular
+```
 
-Run `ng build user-template-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
+### Passo 1:
+app.module.ts
+```typescript
 
-## Publishing
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { UserTemplateAngularModule } from 'user-template-angular';
 
-After building your library with `ng build user-template-angular`, go to the dist folder `cd dist/user-template-angular` and run `npm publish`.
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    UserTemplateAngularModule
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-## Running unit tests
+```
+### Passo 2:
+App.Component.html
+```typescript
+<lib-login (formSubmit)="onSubmit($event)"></lib-login>
+<lib-register (formSubmit)="onSubmit($event)"></lib-register>
 
-Run `ng test user-template-angular` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+### Passo 3:
+App.component.ts
+```typescript
+  onSubmit(valueForm:any){
+    //aqui vc consegue o valor do formulario
+    console.log(valueForm)
 
-## Further help
+  }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```

@@ -1,6 +1,22 @@
 {
   "name": "user-template-angular",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "user registration and login interface library ",
+  "keywords": [
+    "code",
+    "shots",
+    "with",
+    "profanis"
+  ],
+  "author": {
+    "name": "Thales Moreira",
+    "email": "thalesmoreirax@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thaleslm/user-interface-angular-library"
+  },
+  
   "peerDependencies": {
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0"
